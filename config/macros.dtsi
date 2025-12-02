@@ -230,5 +230,23 @@
                 , <&macro_tap &kp FSLH>
                 ;
         };
+
+        mac1: macro1 { // types $Tart1976!
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <20>;
+            tap-ms = <20>;
+            bindings
+                = <&macro_tap &kp DLLR>   // $
+                , <&macro_tap &kp LS(T)>  // T
+                , <&macro_tap &kp A>
+                , <&macro_tap &kp R>
+                , <&macro_tap &kp T>
+                , <&macro_tap &kp N1>
+                , <&macro_tap &kp N9>
+                , <&macro_tap &kp N7>
+                , <&macro_tap &kp N6>
+                , <&macro_tap &kp EXCL>;  // !
+        };
     };
 };
