@@ -30,10 +30,10 @@ jobs:
     # - name: Generate extra keymaps
     #   run: |
     #     echo "⚙️ Generating additional keymaps"
-    #     mv config/keymap/charybdis.keymap config/keymap/qwerty.keymap
+    #     mv config/charybdis.keymap config/qwerty.keymap
 
     - uses: actions/upload-artifact@v4
-      with: { name: generated-keymaps, path: config/keymap/ }
+      with: { name: generated-keymaps, path: config/ }
 
     - name: Build-matrix JSON
       run: python scripts/generate_matrix.py > build.json
@@ -89,7 +89,7 @@ jobs:
     # ───────── pull in keymaps ─────────
     - name: Download keymaps
       uses: actions/download-artifact@v4
-      with: { name: generated-keymaps, path: config/keymap }
+      with: { name: generated-keymaps, path: config }
 
     # ───────── stage keymaps and helper files ─────────
     - name: Stage keymaps, overlays, and dtsi files into source tree
@@ -99,14 +99,13 @@ jobs:
         mkdir -p zmk/app/overlays
 
         # Only for bt/dongle builds, copy in the single keymap and any helpers
-        if [[ "${{ matrix.combo.format }}" != "reset" ]]; then
-          cp config/keymap/${{ matrix.combo.keymap }}.keymap \
-             zmk/app/overlays/charybdis.keymap
+          if [[ "${{ matrix.combo.format }}" != "reset" ]]; then
+            cp config/${{ matrix.combo.keymap }}.keymap \
+               zmk/app/overlays/charybdis.keymap
 
-          # copy helper .dtsi files if they exist
-          cp config/*.dtsi zmk/app/overlays/ 2>/dev/null || true
-          cp config/keymap/*.dtsi zmk/app/overlays/ 2>/dev/null || true
-        fi
+            # copy helper .dtsi files if they exist
+            cp config/*.dtsi zmk/app/overlays/ 2>/dev/null || true
+          fi
 
     # ───────── Inject custom shields & helper DTSI files ─────────
     - name: Inject custom shields & helper files

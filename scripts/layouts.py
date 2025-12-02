@@ -66,7 +66,7 @@ OUTPUT_FILE_NAMES = {
 }
 
 # Run these commands to update all keymaps from the default qwerty
-# python3 scripts/convert_keymap.py -c q2c --in-path config/keymap/qwerty.keymap
-# python3 scripts/convert_keymap.py -c q2g --in-path config/keymap/qwerty.keymap
-# python3 scripts/convert_keymap.py -c q2can --in-path config/keymap/qwerty.keymap
-# python3 scripts/convert_keymap.py -c q2f --in-path config/keymap/qwerty.keymap
+# python3 scripts/convert_keymap.py -c q2c --in-path config/qwerty.keymap
+# python3 scripts/convert_keymap.py -c q2g --in-path config/qwerty.keymap
+# python3 scripts/convert_keymap.py -c q2can --in-path config/qwerty.keymap
+# python3 scripts/convert_keymap.py -c q2f --in-path config/qwerty.keymap
