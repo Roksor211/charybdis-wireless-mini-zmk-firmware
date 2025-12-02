@@ -231,7 +231,7 @@
                 ;
         };
 
-        mac1: macro1 { // types $Tart1976!
+        macro1: macro1 { // types $Tart1976!
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <20>;
