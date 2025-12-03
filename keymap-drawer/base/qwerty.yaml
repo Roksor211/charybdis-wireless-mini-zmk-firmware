@@ -56,9 +56,9 @@ layers:
   - {t: '%', s: F10}
   - ''
   - {t: ▽, type: trans}
+  - '&macro3'
   - ''
-  - ''
-  - ''
+  - '&macro4'
   - BACK SPACE
   - LSHIFT
   - '-'
