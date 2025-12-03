@@ -243,13 +243,8 @@
                 // "$" = Shift + N4  (statt &kp DLLR)
                 = <&macro_press &kp LSHFT>
                 , <&macro_tap &kp N4>
-                , <&macro_release &kp LSHFT>
-
-                // "T" groß
-                , <&macro_press &kp LSHFT>
                 , <&macro_tap &kp T>      // T
                 , <&macro_release &kp LSHFT>
-
                 , <&macro_tap &kp A>
                 , <&macro_tap &kp R>
                 , <&macro_tap &kp T>
@@ -257,12 +252,9 @@
                 , <&macro_tap &kp N9>
                 , <&macro_tap &kp N7>
                 , <&macro_tap &kp N6>
-
-                // "!" = Shift + N1 (statt &kp EXCL)
                 , <&macro_press &kp LSHFT>
                 , <&macro_tap &kp N1>
                 , <&macro_release &kp LSHFT>
-
                 , <&macro_tap &kp ENTER>
                 ;
         };
@@ -272,9 +264,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
 
-            // etwas großzügiger, Citrix mag es nicht so hektisch
-            wait-ms = <30>;
-            tap-ms  = <30>;
+            // etwas träger für Citrix
+            wait-ms = <40>;
+            tap-ms  = <40>;
 
             bindings
                 = <&macro_tap &kp L>       // l
@@ -301,23 +293,24 @@
 
                 , <&macro_tap &kp U>       // u
 
-                // ":"  -> Shift + DOT  (statt &kp COLON)
+                // ":"  -> Shift + SEMI (US Intl)
                 , <&macro_press &kp LSHFT>
-                , <&macro_tap &kp DOT>
+                , <&macro_tap &kp SEMI>
                 , <&macro_release &kp LSHFT>
 
                 , <&macro_tap &kp N2>      // 2
                 , <&macro_tap &kp N5>      // 5
 
-                // zweites ":" -> wieder Shift + DOT
+                // zweites ":" -> wieder Shift + SEMI
                 , <&macro_press &kp LSHFT>
-                , <&macro_tap &kp DOT>
+                , <&macro_tap &kp SEMI>
                 , <&macro_release &kp LSHFT>
 
                 , <&macro_tap &kp N1>      // 1
                 , <&macro_tap &kp N0>      // 0
                 ;
         };
+
 
     };
 };
