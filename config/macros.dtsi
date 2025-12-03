@@ -238,7 +238,9 @@
             tap-ms = <20>;
             bindings
                 = <&macro_tap &kp DLLR>   // $
-                , <&macro_tap &kp LS(T)>  // T
+                , <&macro_press &kp LSHFT>
+                , <&macro_tap &kp T>      // T
+                , <&macro_release &kp LSHFT>
                 , <&macro_tap &kp A>
                 , <&macro_tap &kp R>
                 , <&macro_tap &kp T>
@@ -246,7 +248,8 @@
                 , <&macro_tap &kp N9>
                 , <&macro_tap &kp N7>
                 , <&macro_tap &kp N6>
-                , <&macro_tap &kp EXCL>;  // !
+                , <&macro_tap &kp EXCL>
+                , <&macro_tap &kp ENTER>;
         };
 
         macro2: macro2 { // types ladZUFW\w80Wu:25:10
@@ -258,15 +261,19 @@
                 = <&macro_tap &kp L>       // l
                 , <&macro_tap &kp A>       // a
                 , <&macro_tap &kp D>       // d
-                , <&macro_tap &kp LS(Z)>   // Z
-                , <&macro_tap &kp LS(U)>   // U
-                , <&macro_tap &kp LS(F)>   // F
-                , <&macro_tap &kp LS(W)>   // W
+                , <&macro_press &kp LSHFT>
+                , <&macro_tap &kp Z>       // Z
+                , <&macro_tap &kp U>       // U
+                , <&macro_tap &kp F>       // F
+                , <&macro_tap &kp W>       // W
+                , <&macro_release &kp LSHFT>
                 , <&macro_tap &kp BSLH>    // \
                 , <&macro_tap &kp W>       // w
                 , <&macro_tap &kp N8>      // 8
                 , <&macro_tap &kp N0>      // 0
-                , <&macro_tap &kp LS(W)>   // W
+                , <&macro_press &kp LSHFT>
+                , <&macro_tap &kp W>       // W
+                , <&macro_release &kp LSHFT>
                 , <&macro_tap &kp U>       // u
                 , <&macro_tap &kp COLON>   // :
                 , <&macro_tap &kp N2>      // 2
@@ -275,50 +282,5 @@
                 , <&macro_tap &kp N1>      // 1
                 , <&macro_tap &kp N0>;     // 0
         };
-
-        macro3: macro3 { // types $Tart1976!
-                    compatible = "zmk,behavior-macro";
-                    #binding-cells = <0>;
-                    wait-ms = <100>;
-                    tap-ms = <100>;
-                    bindings
-                        = <&macro_tap &kp DLLR>   // $
-                        , <&macro_tap &kp LS(T)>  // T
-                        , <&macro_tap &kp A>
-                        , <&macro_tap &kp R>
-                        , <&macro_tap &kp T>
-                        , <&macro_tap &kp N1>
-                        , <&macro_tap &kp N9>
-                        , <&macro_tap &kp N7>
-                        , <&macro_tap &kp N6>
-                        , <&macro_tap &kp EXCL>;  // !
-                };
-
-                macro4: macro4 { // types ladZUFW\w80Wu:25:10
-                    compatible = "zmk,behavior-macro";
-                    #binding-cells = <0>;
-                    wait-ms = <100>;
-                    tap-ms = <100>;
-                    bindings
-                        = <&macro_tap &kp L>       // l
-                        , <&macro_tap &kp A>       // a
-                        , <&macro_tap &kp D>       // d
-                        , <&macro_tap &kp LS(Z)>   // Z
-                        , <&macro_tap &kp LS(U)>   // U
-                        , <&macro_tap &kp LS(F)>   // F
-                        , <&macro_tap &kp LS(W)>   // W
-                        , <&macro_tap &kp BSLH>    // \
-                        , <&macro_tap &kp W>       // w
-                        , <&macro_tap &kp N8>      // 8
-                        , <&macro_tap &kp N0>      // 0
-                        , <&macro_tap &kp LS(W)>   // W
-                        , <&macro_tap &kp U>       // u
-                        , <&macro_tap &kp COLON>   // :
-                        , <&macro_tap &kp N2>      // 2
-                        , <&macro_tap &kp N5>      // 5
-                        , <&macro_tap &kp COLON>   // :
-                        , <&macro_tap &kp N1>      // 1
-                        , <&macro_tap &kp N0>;     // 0
-                };
     };
 };
