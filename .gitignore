@@ -7,3 +7,8 @@ zmk-pmw3610-driver/
 local-build/logs.txt
 scripts/__pycache__
 notes
+/.idea/charybdis-wireless-mini-zmk-firmware.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/.gitignore

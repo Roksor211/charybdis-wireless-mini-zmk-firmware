@@ -282,7 +282,7 @@
                 , <&macro_release &kp LSHFT>
 
                 , <&macro_tap &kp BSLH>    // \
-                , <&macro_tap &kp W>       // w
+                , <&macro_tap &kp W>       // W
                 , <&macro_tap &kp N8>      // 8
                 , <&macro_tap &kp N0>      // 0
 
