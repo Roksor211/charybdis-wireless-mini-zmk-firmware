@@ -131,7 +131,7 @@ jobs:
         KM="${{ matrix.combo.keymap }}"
         FM="${{ matrix.combo.format }}"   # bt | dongle | reset
         NM="${{ matrix.combo.name }}"
-        BD="${{ matrix.combo.board }}"    # nice_nano_v2
+        BD="${{ matrix.combo.board }}"    # nice_nano
 
         declare -A LIST=(
           [bt]="charybdis_left charybdis_right"
