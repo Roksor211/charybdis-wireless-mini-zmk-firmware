@@ -76,7 +76,15 @@ jobs:
         west update
         echo "📦 Exporting Zephyr for external build system integration."
         west zephyr-export
-
+        
+        # ───────── FIX: disable duplicate pmw3610 devicetree binding ─────────
+        # Zephyr 4.1 already provides pixart,pmw3610 binding, the external module duplicates it.
+        echo "🩹 Disabling duplicate pmw3610 devicetree binding (if present)..."
+        find "$GITHUB_WORKSPACE" -type f \
+          -path "*pmw3610-driver*/dts/bindings/*pixart,pmw3610.y*ml" \
+          -print -exec mv {} {}.disabled \; || true
+        
+        
         # ───────── DEBUG LOGS ─────────
         echo ""
         echo "🪳 Debug Logs"
