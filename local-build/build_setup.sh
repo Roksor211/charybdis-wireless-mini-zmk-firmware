@@ -49,13 +49,12 @@ chmod -R 777 .west zmk zephyr modules zmk-pmw3610-driver
 echo "📁 Copying source keymaps from $CONFIG_PATH to temporary directory"
 KEYMAP_TEMP="/tmp/keymaps"
 rm -rf "$KEYMAP_TEMP" && mkdir -p "$KEYMAP_TEMP"
-cp "$REPO_ROOT/$CONFIG_PATH/keymap"/*.keymap "$KEYMAP_TEMP/"
+cp "$REPO_ROOT/$CONFIG_PATH/"*.keymap "$KEYMAP_TEMP/"
 
 # Generate additional keymaps and adjust names
 # echo "🔧 Generating additional keymaps"
-# python3 "$SCRIPT_PATH" -c q2c --in-path "$KEYMAP_TEMP/charybdis.keymap"
-# python3 "$SCRIPT_PATH" -c q2g --in-path "$KEYMAP_TEMP/charybdis.keymap"
-# mv "$KEYMAP_TEMP/charybdis.keymap" "$KEYMAP_TEMP/qwerty.keymap"
+# python3 "$SCRIPT_PATH" -c q2c --in-path "$KEYMAP_TEMP/qwerty.keymap"
+# python3 "$SCRIPT_PATH" -c q2g --in-path "$KEYMAP_TEMP/qwerty.keymap"
 
 # Discover shields
 echo "🔍 Discovering shields in sandbox: $REPO_ROOT/$SHIELD_PATH"
@@ -96,9 +95,6 @@ setup_sandbox() {
   cp -r "$REPO_ROOT/." "$BUILD_REPO/"
   cd "$BUILD_REPO"
   
-  # Move the keymap files (macros, combos, etc) to the partent config directory
-  mv "$BUILD_REPO/config/keymap/"* "$BUILD_REPO/config/"
-
   # Determine module mode, set BASE_DIR, copy user config
   if [ -f zmk/module.yml ]; then
       if [ "$shield" != "settings_reset" ]; then
