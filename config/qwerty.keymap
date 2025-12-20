@@ -118,5 +118,18 @@
                               &trans    &trans    &trans    &trans    &trans
             >;
         };
+        /* ───────── Pointer / Trackball Tuning ───────── */
+        pointer {
+            compatible = "zmk,pointer";
+
+            /* Grundgeschwindigkeit */
+            scale = <3>;
+
+            /* Glättung / Beschleunigung */
+            acceleration-exponent = <1>;
+            acceleration-factor = <45>;
+
+            /* Begrenzt Sprünge */
+            max-speed = <600>;
     };
 };
