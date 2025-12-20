@@ -10,8 +10,12 @@
 #endif
 
 /* local overlays */
+#ifndef KEYMAP_DRAWER
 #include "macros.dtsi"
 #include "behaviors.dtsi"
+#else
+/* skip behavior/macro includes when drawing */
+#endif
 #include "combos.dtsi"
 
 &{/} {
