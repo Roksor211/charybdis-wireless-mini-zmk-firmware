@@ -13,12 +13,13 @@
 #ifndef KEYMAP_DRAWER
 #include "macros.dtsi"
 #include "behaviors.dtsi"
-#else
-/* skip behavior/macro includes when drawing */
-#endif
 #include "combos.dtsi"
+#else
+/* skip behavior/macro/combo includes when drawing */
+#include "../keymap-drawer/stubs.dtsi"
+#endif
 
-&{/} {
+/ {
     keymap {
         compatible = "zmk,keymap";
 
