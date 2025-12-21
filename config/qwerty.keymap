@@ -11,6 +11,7 @@
 #include "macros.dtsi"
 #include "behaviors.dtsi"
 #include "combos.dtsi"
+#include "pointer.dtsi"
 
 &{/} {
     keymap {
@@ -96,13 +97,5 @@
             >;
         };
     };
-
-    /* ───────── Pointer / Trackball Tuning ───────── */
-    pointer {
-        compatible = "zmk,pointer";
-        scale = <3>;
-        acceleration-exponent = <1>;
-        acceleration-factor = <45>;
-        max-speed = <600>;
-    };
 };
+
