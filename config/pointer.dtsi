@@ -1,10 +1,8 @@
 /* Pointer / Trackball Tuning */
-&{/} {
-    pointer {
-        compatible = "zmk,pointer";
-        scale = <3>;
-        acceleration-exponent = <1>;
-        acceleration-factor = <25>;
-        max-speed = <550>;
-    };
+pointer {
+    compatible = "zmk,pointer";
+    scale = <3>;
+    acceleration-exponent = <1>;
+    acceleration-factor = <25>;
+    max-speed = <550>;
 };
