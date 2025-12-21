@@ -1,0 +1,61 @@
+/* Minimal stubs so keymap-drawer can resolve phandles when KEYMAP_DRAWER is set. */
+/ {
+    behaviors {
+        kp: kp {};
+        none: none {};
+        trans: trans {};
+        ht_left: ht_left {};
+        ht_right: ht_right {};
+        mkp: mkp {};
+        mmv: mmv {};
+        msc: msc {};
+        bt: bt {};
+        out: out {};
+        td_layers: td_layers {};
+        td_esc_scrl_slow: td_esc_scrl_slow {};
+        td_clk: td_clk {};
+        td_bs: td_bs {};
+        td_space_nav: td_space_nav {};
+        mm_cm_sc: mm_cm_sc {};
+        mm_pr_col: mm_pr_col {};
+        mm_qm_ex: mm_qm_ex {};
+        mm_f1: mm_f1 {};
+        mm_f2: mm_f2 {};
+        mm_f3: mm_f3 {};
+        mm_f4: mm_f4 {};
+        mm_f5: mm_f5 {};
+        mm_f6: mm_f6 {};
+        mm_f7: mm_f7 {};
+        mm_f8: mm_f8 {};
+        mm_f9: mm_f9 {};
+        mm_f10: mm_f10 {};
+        mm_f11: mm_f11 {};
+        mm_f12: mm_f12 {};
+    };
+
+    macros {
+        clip_hist: clip_hist {};
+        code_blk: code_blk {};
+        create_or_attach: create_or_attach {};
+        delete_line: delete_line {};
+        detach_session: detach_session {};
+        gcm: gcm {};
+        home_dir: home_dir {};
+        h_split: h_split {};
+        lgtm: lgtm {};
+        macro1: macro1 {};
+        macro2: macro2 {};
+        mc_add_above: mc_add_above {};
+        mc_add_below: mc_add_below {};
+        move_line_down: move_line_down {};
+        move_line_up: move_line_up {};
+        new_dir: new_dir {};
+        next_pane: next_pane {};
+        show_sessions: show_sessions {};
+        shrug: shrug {};
+        studio_unlock: studio_unlock {};
+        sudo: sudo {};
+        sync_panes: sync_panes {};
+        v_split: v_split {};
+    };
+};

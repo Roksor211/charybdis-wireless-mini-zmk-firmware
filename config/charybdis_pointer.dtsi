@@ -1,6 +1,16 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 
+/ {
+    pointer {
+        compatible = "zmk,pointer";
+        scale = <3>;
+        acceleration-exponent = <1>;
+        acceleration-factor = <45>;
+        max-speed = <600>;
+    };
+};
+
 &trackball_listener {
     /* base processor chain on all layers */
     input-processors = <&zip_xy_scaler 5 5>;
