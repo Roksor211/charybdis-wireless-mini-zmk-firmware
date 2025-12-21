@@ -2,9 +2,9 @@
 &{/} {
     pointer {
         compatible = "zmk,pointer";
-        scale = <3>;
+        scale = <2>;
         acceleration-exponent = <1>;
-        acceleration-factor = <25>;
-        max-speed = <550>;
+        acceleration-factor = <15>;
+        max-speed = <500>;
     };
 };
