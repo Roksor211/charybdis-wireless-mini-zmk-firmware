@@ -19,7 +19,9 @@
 #include "../keymap-drawer/stubs.dtsi"
 #endif
 &{/} {
+#ifndef KEYMAP_DRAWER
     #include "pointer.dtsi"
+#endif
     keymap {
         compatible = "zmk,keymap";
 
