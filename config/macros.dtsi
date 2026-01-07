@@ -3,13 +3,13 @@
         v_split: v_split {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LC(B) &kp PRCNT>;
+            bindings = <&macro_tap &kp LC(B) &kp LS(N5)>;
         };
 
         h_split: h_split {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LC(B) &kp DQT>;
+            bindings = <&macro_tap &kp LC(B) &kp LS(N2)>;
         };
 
         detach_session: detach_session {
@@ -48,7 +48,7 @@
                 , <&macro_tap &kp N>
                 , <&macro_tap &kp E>
                 , <&macro_tap &kp W>
-                , <&macro_tap &kp MINUS>
+                , <&macro_tap &kp FSLH>
                 , <&macro_tap &kp S>
                 , <&macro_tap &kp E>
                 , <&macro_tap &kp S>
@@ -57,10 +57,10 @@
                 , <&macro_tap &kp O>
                 , <&macro_tap &kp N>
                 , <&macro_tap &kp SPC>
-                , <&macro_tap &kp MINUS>
+                , <&macro_tap &kp FSLH>
                 , <&macro_tap &kp A>
                 , <&macro_tap &kp SPC>
-                , <&macro_tap &kp MINUS>
+                , <&macro_tap &kp FSLH>
                 , <&macro_tap &kp S>
                 , <&macro_tap &kp SPC>
             ;
@@ -78,10 +78,10 @@
                 , <&macro_release &kp LCTRL &kp LSHFT>
                 , <&macro_tap &kp N0 &kp N0 &kp A &kp F &kp SPC>
                 // \
-                , <&macro_tap &kp BACKSLASH>
-                , <&macro_tap &kp BACKSLASH>
+                , <&macro_tap &kp RA(MINUS)>
+                , <&macro_tap &kp RA(MINUS)>
                 // _
-                , <&macro_tap &kp UNDER>
+                , <&macro_tap &kp LS(FSLH)>
                 // (
                 , <&macro_tap &kp LPAR>
                 // ツ (Katakana Letter Tu)
@@ -92,9 +92,9 @@
                 // )
                 , <&macro_tap &kp RPAR>
                 // _
-                , <&macro_tap &kp UNDER>
+                , <&macro_tap &kp LS(FSLH)>
                 // /
-                , <&macro_tap &kp FSLH>
+                , <&macro_tap &kp LS(N7)>
                 // ¯ (Macron)
                 , <&macro_press &kp LCTRL &kp LSHFT>
                 , <&macro_tap &kp U>
@@ -111,8 +111,8 @@
             bindings = <
                 &macro_tap &kp G &kp I &kp T &kp SPACE
                 &kp C &kp O &kp M &kp M &kp I &kp T &kp SPACE
-                &kp MINUS &kp A &kp M &kp SPACE
-                &kp DQT &kp LS(W) &kp LS(I) &kp LS(P) &kp DQT
+                &kp FSLH &kp A &kp M &kp SPACE
+                &kp LS(N2) &kp LS(W) &kp LS(I) &kp LS(P) &kp LS(N2)
             >;
         };
 
@@ -124,8 +124,8 @@
             bindings = <
                 &macro_tap
                 &kp LS(L) &kp LS(G) &kp LS(T) &kp LS(M)
-                &kp SPACE &kp MINUS &kp SPACE
-                &kp LS(A) &kp P &kp P &kp R &kp O &kp V &kp E &kp D &kp EXCL
+                &kp SPACE &kp FSLH &kp SPACE
+                &kp LS(A) &kp P &kp P &kp R &kp O &kp V &kp E &kp D &kp LS(N1)
             >;
         };
 
@@ -137,7 +137,7 @@
             bindings
                 = <&macro_tap &kp S &kp U &kp D &kp O>  // "sudo"
                 , <&macro_tap &kp SPACE>                // space
-                , <&macro_tap &kp EXCL &kp EXCL>        // "!!"
+                , <&macro_tap &kp LS(N1) &kp LS(N1)>    // "!!"
                 , <&macro_tap &kp RET>                  // Enter key
                 ;
         };
@@ -216,9 +216,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_tap &kp GRAVE>
-                , <&macro_tap &kp GRAVE>
-                , <&macro_tap &kp GRAVE>
+                = <&macro_tap &kp LS(EQUAL)>
+                , <&macro_tap &kp LS(EQUAL)>
+                , <&macro_tap &kp LS(EQUAL)>
                 ;
         };
         
@@ -226,8 +226,8 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_tap &kp TILDE>
-                , <&macro_tap &kp FSLH>
+                = <&macro_tap &kp RA(RBKT)>
+                , <&macro_tap &kp LS(N7)>
                 ;
         };
 
@@ -275,13 +275,13 @@
 
                 // "ZUFW" groß
                 , <&macro_press &kp LSHFT>
-                , <&macro_tap &kp Z>       // Z
+                , <&macro_tap &kp Y>       // Z
                 , <&macro_tap &kp U>       // U
                 , <&macro_tap &kp F>       // F
                 , <&macro_tap &kp W>       // W
                 , <&macro_release &kp LSHFT>
 
-                , <&macro_tap &kp BSLH>    // \
+                , <&macro_tap &kp RA(MINUS)>    // \
                 , <&macro_tap &kp W>       // W
                 , <&macro_tap &kp N8>      // 8
                 , <&macro_tap &kp N0>      // 0
@@ -293,17 +293,17 @@
 
                 , <&macro_tap &kp U>       // u
 
-                // ":"  -> Shift + SEMI (US Intl)
+                // ":"  -> Shift + PERIOD (DE)
                 , <&macro_press &kp LSHFT>
-                , <&macro_tap &kp SEMI>
+                , <&macro_tap &kp PERIOD>
                 , <&macro_release &kp LSHFT>
 
                 , <&macro_tap &kp N2>      // 2
                 , <&macro_tap &kp N5>      // 5
 
-                // zweites ":" -> wieder Shift + SEMI
+                // zweites ":" -> wieder Shift + PERIOD
                 , <&macro_press &kp LSHFT>
-                , <&macro_tap &kp SEMI>
+                , <&macro_tap &kp PERIOD>
                 , <&macro_release &kp LSHFT>
 
                 , <&macro_tap &kp N1>      // 1
