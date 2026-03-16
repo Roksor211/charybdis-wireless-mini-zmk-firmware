@@ -9,7 +9,9 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      # Pin ZMK to a known-good revision from 2026-01-07 to avoid runtime regressions
+      # from rebuilding against whatever `main` happens to contain on a given day.
+      revision: 70ab6b2
       import: app/west.yml
 
   self:
