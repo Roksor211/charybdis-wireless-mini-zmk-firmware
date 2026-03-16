@@ -231,13 +231,13 @@
                 ;
         };
 
-        macro1: macro1 { // types $Tart1976!
+        macro1: macro1 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
 
             // bisschen mehr Luft für Citrix
-            wait-ms = <30>;
-            tap-ms  = <30>;
+            wait-ms = <10>;
+            tap-ms  = <10>;
 
             bindings
                 // "$" = Shift + N4  (statt &kp DLLR)
@@ -255,6 +255,13 @@
                 , <&macro_press &kp LSHFT>
                 , <&macro_tap &kp N1>
                 , <&macro_release &kp LSHFT>
+                , <&macro_tap &kp N2>
+                , <&macro_tap &kp N6>
+                , <&macro_press &kp LSHFT>
+                , <&macro_tap &kp PERIOD>
+                , <&macro_release &kp LSHFT>
+                , <&macro_tap &kp N0>
+                , <&macro_tap &kp N5>
                 , <&macro_tap &kp ENTER>
                 ;
         };
@@ -298,16 +305,16 @@
                 , <&macro_tap &kp PERIOD>
                 , <&macro_release &kp LSHFT>
 
-                , <&macro_tap &kp N2>      // 2
-                , <&macro_tap &kp N5>      // 5
+                , <&macro_tap &kp N2>
+                , <&macro_tap &kp N6>
 
                 // zweites ":" -> wieder Shift + PERIOD
                 , <&macro_press &kp LSHFT>
                 , <&macro_tap &kp PERIOD>
                 , <&macro_release &kp LSHFT>
 
-                , <&macro_tap &kp N1>      // 1
-                , <&macro_tap &kp N0>      // 0
+                , <&macro_tap &kp N0>
+                , <&macro_tap &kp N1>
                 ;
         };
 
