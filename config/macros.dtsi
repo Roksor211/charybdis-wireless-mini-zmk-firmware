@@ -236,8 +236,8 @@
             #binding-cells = <0>;
 
             // bisschen mehr Luft für Citrix
-            wait-ms = <10>;
-            tap-ms  = <10>;
+            // wait-ms = <10>;
+            // tap-ms  = <10>;
 
             bindings
                 // "$" = Shift + N4  (statt &kp DLLR)
@@ -272,50 +272,25 @@
             #binding-cells = <0>;
 
             // etwas träger für Citrix
-            wait-ms = <40>;
-            tap-ms  = <40>;
+            // wait-ms = <40>;
+            // tap-ms  = <40>;
 
             bindings
-                = <&macro_tap &kp L>       // l
-                , <&macro_tap &kp A>       // a
-                , <&macro_tap &kp D>       // d
-
-                // "ZUFW" groß
-                , <&macro_press &kp LSHFT>
-                , <&macro_tap &kp Y>       // Z
-                , <&macro_tap &kp U>       // U
-                , <&macro_tap &kp F>       // F
-                , <&macro_tap &kp W>       // W
+                // "$" = Shift + N4  (statt &kp DLLR)
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp N4>
+                , <&macro_tap &kp T>      // T
                 , <&macro_release &kp LSHFT>
-
-                , <&macro_tap &kp RA(MINUS)>    // \
-                , <&macro_tap &kp W>       // W
-                , <&macro_tap &kp N8>      // 8
-                , <&macro_tap &kp N0>      // 0
-
-                // "W" groß
-                , <&macro_press &kp LSHFT>
-                , <&macro_tap &kp W>       // W
-                , <&macro_release &kp LSHFT>
-
-                , <&macro_tap &kp U>       // u
-
-                // ":"  -> Shift + PERIOD (DE)
-                , <&macro_press &kp LSHFT>
-                , <&macro_tap &kp PERIOD>
-                , <&macro_release &kp LSHFT>
-
-                , <&macro_tap &kp N2>
-                , <&macro_tap &kp N6>
-
-                // zweites ":" -> wieder Shift + PERIOD
-                , <&macro_press &kp LSHFT>
-                , <&macro_tap &kp PERIOD>
-                , <&macro_release &kp LSHFT>
-
-                , <&macro_tap &kp N0>
+                , <&macro_tap &kp A>
+                , <&macro_tap &kp R>
+                , <&macro_tap &kp T>
                 , <&macro_tap &kp N1>
-                ;
+                , <&macro_tap &kp N9>
+                , <&macro_tap &kp N7>
+                , <&macro_tap &kp N6>
+                , <&macro_press &kp LSHFT>
+                , <&macro_tap &kp N1>
+                , <&macro_release &kp LSHFT>                ;
         };
 
 
