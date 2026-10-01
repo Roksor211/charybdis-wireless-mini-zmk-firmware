@@ -255,14 +255,6 @@
                 , <&macro_press &kp LSHFT>
                 , <&macro_tap &kp N1>
                 , <&macro_release &kp LSHFT>
-                , <&macro_tap &kp N2>
-                , <&macro_tap &kp N6>
-                , <&macro_press &kp LSHFT>
-                , <&macro_tap &kp PERIOD>
-                , <&macro_release &kp LSHFT>
-                , <&macro_tap &kp N0>
-                , <&macro_tap &kp N5>
-                , <&macro_tap &kp ENTER>
                 ;
         };
 
