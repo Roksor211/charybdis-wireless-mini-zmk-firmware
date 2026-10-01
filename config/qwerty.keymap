@@ -16,8 +16,9 @@
 #include "combos.dtsi"
 #include "pointer.dtsi"
 #else
-/* skip behavior/macro/combo includes when drawing */
-#include "../keymap-drawer/stubs.dtsi"
+/* Read custom behaviors and combos for the learning diagrams. */
+#include "behaviors.dtsi"
+#include "combos.dtsi"
 #endif
 / {
     keymap {
