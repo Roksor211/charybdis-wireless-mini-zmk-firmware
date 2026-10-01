@@ -31,7 +31,9 @@
                 &kp LSHIFT      &kp Y            &kp X            &kp C             &kp V             &kp B     &kp N  &kp M              &mm_cm_sc          &mm_pr_col        &mm_qm_ex                 &kp LS(N7)
                                                      &td_esc_scrl_slow   &td_clk  &td_bs     &kp ENTER  &td_space_nav
             >;
-        }; NUM {
+        };
+
+        NUM {
             display-name = "Num";
             bindings = <
                 &none   &kp APOS  &kp SEMICOLON   &kp LBKT  &kp MINUS          &none            &kp RBKT     &mm_f7   &mm_f8   &mm_f9   &mm_f10  &none
