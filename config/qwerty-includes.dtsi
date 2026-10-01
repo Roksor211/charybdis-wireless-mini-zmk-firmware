@@ -1,4 +1,4 @@
-/* upstream bindings and behaviors */
+/* Firmware-only includes. Editable definitions live in qwerty.keymap. */
 #ifndef KEYMAP_DRAWER
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
@@ -7,15 +7,5 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <behaviors/mouse_keys.dtsi>
 #include <dt-bindings/zmk/ext_power.h>
-#endif
-
-/* local overlays */
-#ifndef KEYMAP_DRAWER
-#include "macros.dtsi"
-#include "behaviors.dtsi"
-#include "combos.dtsi"
 #include "pointer.dtsi"
-#else
-#include "behaviors.dtsi"
-#include "combos.dtsi"
 #endif
