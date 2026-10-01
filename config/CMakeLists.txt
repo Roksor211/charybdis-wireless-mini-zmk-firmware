@@ -1,0 +1,8 @@
+if(CONFIG_SHIELD_CHARYBDIS_RIGHT)
+  if(CONFIG_INPUT_PMW3610)
+    message(FATAL_ERROR "Set CONFIG_INPUT_PMW3610=n in config/charybdis_right.conf")
+  endif()
+  zephyr_library()
+  zephyr_library_include_directories(${ZEPHYR_BASE}/drivers/input)
+  zephyr_library_sources(src/pmw3610_rotated.c)
+endif()

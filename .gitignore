@@ -1,6 +1,6 @@
 .west/
 zmk/
-zephyr/
+/zephyr/
 !zephyr/module.yml
 modules/
 zmk-pmw3610-driver/
