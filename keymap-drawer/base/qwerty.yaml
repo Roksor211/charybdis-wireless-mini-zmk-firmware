@@ -1,86 +1,125 @@
 layout: {zmk_keyboard: qwerty}
 layers:
-  Base: [CLIP HIST, Q, W, E, R, T, Z, U, I, O, P, L_BASE L_GAME, TAB, '&ht_left LCMD A', '&ht_left RALT S', '&ht_left LSHFT D', '&ht_left LCTRL F', G, H, '&ht_right
-      RCTRL J', '&ht_right RSHFT K', '&ht_right RALT L', '&ht_right RCMD LS(COMMA)', DEL, LSHIFT, Y, X, C, V, B, N, M, '&mm_cm_sc', '&mm_pr_col', '&mm_qm_ex', Sft+
-      7, ESC SCRL SLOW, SYM LCLK, BS NUM, ENTER, SPACE NAV]
+  Base:
+  - {t: Zwischen- ablage, type: action}
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - Y
+  - U
+  - I
+  - O
+  - P
+  - {t: Base, tr: 2×Game, type: layer}
+  - Tab
+  - {t: A, h: Win}
+  - {t: S, h: AltGr}
+  - {t: D, h: Shift}
+  - {t: F, h: Strg}
+  - G
+  - H
+  - {t: J, h: Strg}
+  - {t: K, h: Shift}
+  - {t: L, h: AltGr}
+  - {t: ;, h: Win}
+  - Entf
+  - Shift
+  - Z
+  - X
+  - C
+  - V
+  - B
+  - N
+  - M
+  - {t: ',', s: ;}
+  - {t: ., s: ':'}
+  - {t: '?', s: '!'}
+  - /
+  - {t: Esc, h: Scroll, tr: 2×Slow, type: layer}
+  - {t: L-Klick, h: Sym, type: layer}
+  - {t: ⌫, h: Num, type: layer}
+  - Enter
+  - {t: Leer, h: Nav, type: layer}
   Num:
   - ''
-  - ''''
-  - ;
-  - '['
-  - '-'
+  - {t: ä, s: Ä}
+  - {t: ö, s: Ö}
+  - {t: ü, s: Ü}
+  - {t: ß, s: '?'}
   - ''
-  - ']'
-  - '&mm_f7'
-  - '&mm_f8'
-  - '&mm_f9'
-  - '&mm_f10'
+  - {t: +, s: '*'}
+  - {t: '7', s: F7}
+  - {t: '8', s: F8}
+  - {t: '9', s: F9}
+  - {t: '%', s: F10}
   - ''
   - {t: ▽, type: trans}
   - ''
   - ''
   - ''
-  - BACK SPACE
-  - LSHIFT
+  - ⌫
+  - Shift
   - '-'
-  - '&mm_f4'
-  - '&mm_f5'
-  - '&mm_f6'
-  - '&mm_f11'
+  - {t: '4', s: F4}
+  - {t: '5', s: F5}
+  - {t: '6', s: F6}
+  - {t: '*', s: F11}
   - ''
   - ''
-  - '&macro2'
+  - {t: Makro 2, type: action}
   - X
-  - '&macro1'
+  - {t: Makro 1, type: action}
   - ''
   - ''
-  - Sft+ 0
-  - '&mm_f1'
-  - '&mm_f2'
-  - '&mm_f3'
-  - '&mm_f12'
+  - '='
+  - {t: '1', s: F1}
+  - {t: '2', s: F2}
+  - {t: '3', s: F3}
+  - {t: ., s: F12}
   - /
   - ''
   - ''
   - {t: ▽, type: trans}
-  - '0'
-  - SPACE
+  - {t: '0', s: '='}
+  - Leer
   Nav:
   - ''
-  - WHEEL L
-  - WHEEL D
+  - {t: Rad ←, type: action}
+  - {t: Rad ↓, type: action}
   - ''
-  - WHEEL U
-  - WHEEL R
-  - TMUX DETCH
-  - TMUX ATTCH
-  - TMUX NEXT
-  - TMUX SESH
-  - TMUX SYNC
+  - {t: Rad ↑, type: action}
+  - {t: Rad →, type: action}
+  - {t: tmux lösen, type: action}
+  - {t: tmux öffnen, type: action}
+  - {t: Pane weiter, type: action}
+  - {t: Sitzungen, type: action}
+  - {t: Panes sync, type: action}
   - ''
-  - TAB
-  - BACK
-  - RALT
-  - LSHFT
-  - LCTRL
-  - FWD
-  - HSPLIT
-  - LEFT
-  - DOWN
-  - UP
-  - RIGHT
+  - Tab
+  - {t: Zurück, type: action}
+  - AltGr
+  - Shift
+  - Strg
+  - {t: Vor, type: action}
+  - {t: Pane ↕, type: action}
+  - ←
+  - ↓
+  - ↑
+  - →
   - ''
   - ''
-  - MOVE L
-  - MOVE D
-  - MOVE UP
-  - MOVE R
+  - {t: Maus ←, type: action}
+  - {t: Maus ↓, type: action}
+  - {t: Maus ↑, type: action}
+  - {t: Maus →, type: action}
   - ''
-  - VSPLIT
-  - HOME
-  - PG DN
-  - PG UP
-  - END
+  - {t: Pane ↔, type: action}
+  - Pos1
+  - Bild ↓
+  - Bild ↑
+  - Ende
   - ''
   - ''
   - ''
@@ -89,49 +128,49 @@ layers:
   - {t: ▽, type: trans}
   Sym:
   - ''
-  - AGr+ ]
-  - Sft+ 4
-  - '`'
-  - '&move_line_up'
-  - '&mc_add_above'
-  - Sft+ 6
+  - '~'
+  - $
+  - {t: ^, s: °, type: dead}
+  - {t: Zeile ↑, type: action}
+  - {t: Cursor ↑, type: action}
+  - '&'
+  - {t: +, s: '*'}
+  - '['
   - ']'
-  - AGr+ 8
-  - AGr+ 9
-  - Sft+ 5
-  - AGr+ -
-  - ''
-  - Sft+ /
-  - '|'
-  - Sft+ |
-  - BACK SPACE
-  - '&delete_line'
-  - Sft+ =
-  - '-'
-  - Sft+ 8
-  - Sft+ 9
-  - Sft+ ]
-  - AGr+ |
-  - ''
-  - ~/
-  - ''
+  - '%'
   - \
-  - '&move_line_down'
-  - '&mc_add_below'
-  - '```'
-  - Sft+ 0
-  - AGr+ 7
-  - AGr+ 0
-  - AGr+ Q
-  - Sft+ 7
+  - ''
+  - _
+  - {t: <, s: '>'}
+  - '>'
+  - ⌫
+  - {t: Zeile löschen, type: action}
+  - {t: '`', type: dead}
+  - '-'
+  - (
+  - )
+  - '*'
+  - '|'
+  - ''
+  - {t: ~/, type: action}
+  - ''
+  - {t: '#', s: ''''}
+  - {t: Zeile ↓, type: action}
+  - {t: Cursor ↓, type: action}
+  - {t: '```', type: action}
+  - '='
+  - '{'
+  - '}'
+  - '@'
+  - /
   - ''
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   Game:
-  - '1'
-  - TAB
+  - {t: '1', s: '!'}
+  - Tab
   - Q
   - W
   - E
@@ -142,8 +181,8 @@ layers:
   - O
   - P
   - {t: ▽, type: trans}
-  - '2'
-  - LCTRL
+  - {t: '2', s: '"'}
+  - Strg
   - A
   - S
   - D
@@ -154,59 +193,59 @@ layers:
   - L
   - ''
   - ''
-  - '3'
-  - LSHFT
-  - Z
+  - {t: '3', s: §}
+  - Shift
+  - Y
   - X
   - C
   - V
   - N
   - M
-  - Y
+  - Z
   - ''
   - ''
   - ''
   - B
-  - SPACE
-  - LEFT ALT
-  - ESC
+  - Leer
+  - Alt
+  - Esc
   - ''
   Xtra:
-  - ZMK Studio
-  - SHRUG
-  - LGTM
-  - GIT COMMIT
+  - {t: Studio öffnen, type: action}
+  - {t: Shrug, type: action}
+  - {t: LGTM, type: action}
+  - {t: Git Commit, type: action}
   - ''
-  - BRIGHT ▲
-  - {t: BT, h: '0'}
-  - {t: BT, h: '1'}
-  - {t: BT, h: '2'}
-  - {t: BT, h: '3'}
-  - OUT TOG
-  - BT CLR
-  - SLEEP
-  - sudo!!
+  - {t: Heller, type: action}
+  - {t: BT 0, type: action}
+  - {t: BT 1, type: action}
+  - {t: BT 2, type: action}
+  - {t: BT 3, type: action}
+  - {t: USB / BT, type: action}
+  - {t: BT löschen, type: action}
+  - {t: Standby, type: action}
+  - {t: sudo!!, type: action}
   - ''
   - ''
   - ''
-  - BRIGHT ▼
+  - {t: Dunkler, type: action}
   - ''
-  - PREVIOUS
-  - PLAY PAUSE
-  - STOP
-  - NEXT
+  - {t: Titel zurück, type: action}
+  - {t: Play Pause, type: action}
+  - {t: Stopp, type: action}
+  - {t: Titel weiter, type: action}
   - ''
-  - LOCK
-  - UNDO
-  - CUT
-  - COPY
-  - PASTE
+  - {t: Sperren, type: action}
+  - {t: Rück- gängig, type: action}
+  - {t: Aus- schneiden, type: action}
+  - {t: Kopieren, type: action}
+  - {t: Einfügen, type: action}
   - ''
-  - NEW DIR
-  - MUTE
-  - VOLUME DOWN
-  - VOLUME UP
-  - PRINT SCREEN
+  - {t: Neuer Ordner, type: action}
+  - {t: Stumm, type: action}
+  - {t: Leiser, type: action}
+  - {t: Lauter, type: action}
+  - {t: Screen- shot, type: action}
   - ''
   - ''
   - ''
@@ -297,3 +336,21 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+combos:
+- p: [17, 18]
+  k: {t: Wort GROSS, h: G+H  ·  Base}
+  l: [Base]
+- p: [38, 39]
+  k: {t: Extras halten, h: '⌫+Enter  ·  2×:Base  ·  alle Ebenen'}
+- p: [25, 26]
+  k: {t: Linksklick, h: Z+X  ·  alle Ebenen}
+- p: [26, 27]
+  k: {t: Mittelklick, h: X+C  ·  alle Ebenen}
+- p: [27, 28]
+  k: {t: Rechtsklick, h: C+V  ·  alle Ebenen}
+- p: [7, 8, 9]
+  k: {t: USB, h: U+I+O  ·  Base}
+  l: [Base]
+- p: [8, 9, 10]
+  k: {t: Bluetooth, h: I+O+P  ·  Base}
+  l: [Base]
