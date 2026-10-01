@@ -19,7 +19,7 @@
 /* skip behavior/macro/combo includes when drawing */
 #include "../keymap-drawer/stubs.dtsi"
 #endif
-&{/} {
+/ {
     keymap {
         compatible = "zmk,keymap";
 
