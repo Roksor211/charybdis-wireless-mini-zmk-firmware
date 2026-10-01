@@ -1,16 +1,16 @@
 layout: {zmk_keyboard: qwerty}
 layers:
-  Base: [CLIP HIST, Q, W, E, R, T, Y, U, I, O, P, L_BASE L_GAME, TAB, '&ht_left LCMD A', '&ht_left RALT S', '&ht_left LSHFT D', '&ht_left LCTRL F', G, H, '&ht_right
-      RCTRL J', '&ht_right RSHFT K', '&ht_right RALT L', '&ht_right RCMD SEMICOLON', DEL, LSHIFT, Z, X, C, V, B, N, M, '&mm_cm_sc', '&mm_pr_col', '&mm_qm_ex', /,
-    ESC SCRL SLOW, SYM LCLK, BS NUM, ENTER, SPACE NAV]
+  Base: [CLIP HIST, Q, W, E, R, T, Z, U, I, O, P, L_BASE L_GAME, TAB, '&ht_left LCMD A', '&ht_left RALT S', '&ht_left LSHFT D', '&ht_left LCTRL F', G, H, '&ht_right
+      RCTRL J', '&ht_right RSHFT K', '&ht_right RALT L', '&ht_right RCMD LS(COMMA)', DEL, LSHIFT, Y, X, C, V, B, N, M, '&mm_cm_sc', '&mm_pr_col', '&mm_qm_ex', Sft+
+      7, ESC SCRL SLOW, SYM LCLK, BS NUM, ENTER, SPACE NAV]
   Num:
   - ''
+  - ''''
+  - ;
+  - '['
+  - '-'
   - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - +
+  - ']'
   - '&mm_f7'
   - '&mm_f8'
   - '&mm_f9'
@@ -34,7 +34,7 @@ layers:
   - '&macro1'
   - ''
   - ''
-  - '='
+  - Sft+ 0
   - '&mm_f1'
   - '&mm_f2'
   - '&mm_f3'
@@ -89,41 +89,41 @@ layers:
   - {t: ▽, type: trans}
   Sym:
   - ''
-  - '~'
-  - $
-  - ^
+  - AGr+ ]
+  - Sft+ 4
+  - '`'
   - '&move_line_up'
   - '&mc_add_above'
-  - '&'
-  - +
-  - '['
+  - Sft+ 6
   - ']'
-  - '%'
-  - \
+  - AGr+ 8
+  - AGr+ 9
+  - Sft+ 5
+  - AGr+ -
   - ''
-  - _
-  - <
-  - '>'
+  - Sft+ /
+  - '|'
+  - Sft+ |
   - BACK SPACE
   - '&delete_line'
-  - '`'
+  - Sft+ =
   - '-'
-  - (
-  - )
-  - '*'
-  - '|'
+  - Sft+ 8
+  - Sft+ 9
+  - Sft+ ]
+  - AGr+ |
   - ''
   - ~/
   - ''
-  - '#'
+  - \
   - '&move_line_down'
   - '&mc_add_below'
   - '```'
-  - '='
-  - '{'
-  - '}'
-  - '@'
-  - /
+  - Sft+ 0
+  - AGr+ 7
+  - AGr+ 0
+  - AGr+ Q
+  - Sft+ 7
   - ''
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -136,11 +136,11 @@ layers:
   - W
   - E
   - R
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
+  - T
+  - U
+  - I
+  - O
+  - P
   - {t: ▽, type: trans}
   - '2'
   - LCTRL
@@ -148,28 +148,28 @@ layers:
   - S
   - D
   - F
-  - ''
-  - ''
-  - ''
-  - ''
+  - H
+  - J
+  - K
+  - L
   - ''
   - ''
   - '3'
   - LSHFT
-  - Y
+  - Z
   - X
   - C
   - V
+  - N
+  - M
+  - Y
   - ''
   - ''
   - ''
-  - ''
-  - ''
-  - ''
-  - ''
+  - B
   - SPACE
   - LEFT ALT
-  - ''
+  - ESC
   - ''
   Xtra:
   - ZMK Studio
