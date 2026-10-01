@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include <zephyr/input/input.h>
 
-/* Additional 45-degree correction for the single PMW3610 sensor.
+/* Additional 22.5-degree correction for the single PMW3610 sensor.
  * Screen coordinates: X points right, Y points down.
  */
 static int charybdis_report_rotated(const struct device *dev, uint16_t code,
@@ -23,9 +23,9 @@ static int charybdis_report_rotated(const struct device *dev, uint16_t code,
         return 0;
     }
 
-    /* Rotate counterclockwise on screen, retaining fractional movement. */
-    int64_t scaled_x = ((int64_t)x + y) * 23170 + remainder_x;
-    int64_t scaled_y = ((int64_t)y - x) * 23170 + remainder_y;
+    /* Additional 22.5-degree counterclockwise screen correction. */
+    int64_t scaled_x = (int64_t)x * 30274 + (int64_t)y * 12540 + remainder_x;
+    int64_t scaled_y = (int64_t)y * 30274 - (int64_t)x * 12540 + remainder_y;
 
     int32_t rotated_x = scaled_x / 32768;
     int32_t rotated_y = scaled_y / 32768;
