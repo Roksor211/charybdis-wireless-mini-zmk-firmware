@@ -37,3 +37,16 @@
     status = "okay";
     device = <&trackball>;
 };
+
+/ {
+    chosen {
+        zephyr,console = &charybdis_debug_uart;
+        zephyr,shell-uart = &charybdis_debug_uart;
+    };
+};
+
+&zephyr_udc0 {
+    charybdis_debug_uart: charybdis_debug_uart {
+        compatible = "zephyr,cdc-acm-uart";
+    };
+};
