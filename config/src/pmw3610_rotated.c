@@ -11,7 +11,34 @@ static atomic_t diag_phase, diag_errors;
 static struct k_work *diag_motion_work;
 static k_work_handler_t diag_original_handler;
 
-static void charybdis_motion_work_handler(struct k_work *work);
+static void charybdis_motion_work_handler(struct k_work *work)
+{
+    struct pmw3610_data *data =
+        CONTAINER_OF(work, struct pmw3610_data, motion_work);
+    const struct pmw3610_config *cfg = data->dev->config;
+
+    atomic_inc(&diag_started);
+    atomic_set(&diag_phase, 1);
+
+    diag_original_handler(work);
+
+    atomic_inc(&diag_finished);
+    atomic_set(&diag_phase, 0);
+
+    /* The motion line may still be active without a new interrupt edge. */
+    int motion = gpio_pin_get_dt(&cfg->motion_gpio);
+    if (motion > 0) {
+        /* Limit retries if the signal stays active persistently. */
+        k_sleep(K_MSEC(1));
+
+        int ret = charybdis_sensor_work_submit(work);
+        if (ret < 0) {
+            atomic_inc(&diag_errors);
+        }
+    } else if (motion < 0) {
+        atomic_inc(&diag_errors);
+    }
+}
 
 static void charybdis_motion_work_init(struct k_work *work,
                                       k_work_handler_t handler)
