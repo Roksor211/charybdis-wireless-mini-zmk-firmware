@@ -47,54 +47,94 @@ static int charybdis_sensor_work_submit(struct k_work *work)
     return k_work_submit_to_queue(&charybdis_sensor_work_q, work);
 }
 
-/* Additional 22.5-degree counterclockwise screen correction. */
-static int charybdis_report_rotated(const struct device *dev, uint16_t code,
-                                  int32_t value, bool sync, k_timeout_t timeout)
-{
-    static int32_t x, y;
-    static int32_t remainder_x, remainder_y;
+/* Accumulate movement; all accesses run on the sensor workqueue. */
+static const struct device *pending_motion_dev;
+static int32_t pending_x, pending_y;
+static int32_t rotation_remainder_x, rotation_remainder_y;
 
+static void charybdis_flush_motion(struct k_work *work)
+{
+    ARG_UNUSED(work);
+
+    if (pending_motion_dev == NULL ||
+        (pending_x == 0 && pending_y == 0)) {
+        return;
+    }
+
+    int64_t scaled_x = (int64_t)pending_x * 30274
+                     + (int64_t)pending_y * 12540
+                     + rotation_remainder_x;
+    int64_t scaled_y = (int64_t)pending_y * 30274
+                     - (int64_t)pending_x * 12540
+                     + rotation_remainder_y;
+
+    int32_t rotated_x = scaled_x / 32768;
+    int32_t rotated_y = scaled_y / 32768;
+
+    rotation_remainder_x =
+        scaled_x - (int64_t)rotated_x * 32768;
+    rotation_remainder_y =
+        scaled_y - (int64_t)rotated_y * 32768;
+
+    pending_x = 0;
+    pending_y = 0;
+
+    if (rotated_x == 0 && rotated_y == 0) {
+        return;
+    }
+
+    atomic_set(&diag_phase, 2);
+    int ret = input_report_rel(pending_motion_dev, INPUT_REL_X,
+                               rotated_x, false, K_FOREVER);
+    if (ret < 0) {
+        atomic_inc(&diag_errors);
+        atomic_set(&diag_phase, 0);
+        return;
+    }
+
+    atomic_set(&diag_phase, 3);
+    ret = input_report_rel(pending_motion_dev, INPUT_REL_Y,
+                           rotated_y, true, K_FOREVER);
+    if (ret < 0) {
+        atomic_inc(&diag_errors);
+    }
+
+    atomic_set(&diag_phase, 0);
+}
+
+K_WORK_DELAYABLE_DEFINE(charybdis_motion_flush_work,
+                        charybdis_flush_motion);
+
+static int charybdis_report_rotated(const struct device *dev,
+                                  uint16_t code, int32_t value,
+                                  bool sync, k_timeout_t timeout)
+{
     if (code == INPUT_REL_X) {
-        x += value;
+        pending_x += value;
     } else if (code == INPUT_REL_Y) {
-        y += value;
+        pending_y += value;
     } else {
         return input_report_rel(dev, code, value, sync, timeout);
     }
+
+    pending_motion_dev = dev;
 
     if (!sync) {
         return 0;
     }
 
-    int64_t scaled_x = (int64_t)x * 30274
-                     + (int64_t)y * 12540 + remainder_x;
-    int64_t scaled_y = (int64_t)y * 30274
-                     - (int64_t)x * 12540 + remainder_y;
+    /* Keep the first deadline; later samples join the same batch. */
+    int ret = k_work_schedule_for_queue(
+        &charybdis_sensor_work_q,
+        &charybdis_motion_flush_work,
+        K_MSEC(12));
 
-    int32_t rotated_x = scaled_x / 32768;
-    int32_t rotated_y = scaled_y / 32768;
-
-    remainder_x = scaled_x - (int64_t)rotated_x * 32768;
-    remainder_y = scaled_y - (int64_t)rotated_y * 32768;
-
-    x = 0;
-    y = 0;
-
-    atomic_set(&diag_phase, 2);
-    int ret = input_report_rel(dev, INPUT_REL_X, rotated_x, false, timeout);
     if (ret < 0) {
         atomic_inc(&diag_errors);
         return ret;
     }
 
-    atomic_set(&diag_phase, 3);
-    ret = input_report_rel(dev, INPUT_REL_Y, rotated_y, true, timeout);
-    if (ret < 0) {
-        atomic_inc(&diag_errors);
-    }
-
-    atomic_set(&diag_phase, 4);
-    return ret;
+    return 0;
 }
 
 /* Compile the pinned driver with rotation and instrumented motion work. */
